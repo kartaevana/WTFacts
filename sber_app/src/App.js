@@ -1,12 +1,9 @@
 import React, { useRef, useState, useEffect } from "react";
 import './style/style.css';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { GenreContext } from "./hook/context";
 import { createAssistant, createSmartappDebugger } from "@salutejs/client";
-import Game from "./Components/Game";
-import DifferentQuotes from "./Components/DifferentQuotes";
-import Menu from "./Components/Menu";
 import { useSpatnavInitialization } from "@salutejs/spatial";
+import { AppRoutes } from "./routes/AppRoutes";
 
 function App() {
   const [character, setCharacter] = useState('sber');
@@ -41,15 +38,15 @@ function App() {
   const assistantStateRef = useRef();
   const assistantRef = useRef();
 
-  useEffect(() => {
-    assistantRef.current = initialize(() => assistantStateRef.current);
-    assistantRef.current.on("data", (action) => {
-      handleAssistantDataEvent(action)
-    });
-    assistantRef.current.on("command", (event) => {
-      dispatchAssistantAction(event?.command);
-    })
-  }, [])
+  // useEffect(() => {
+  //   assistantRef.current = initialize(() => assistantStateRef.current);
+  //   assistantRef.current.on("data", (action) => {
+  //     handleAssistantDataEvent(action)
+  //   });
+  //   assistantRef.current.on("command", (event) => {
+  //     dispatchAssistantAction(event?.command);
+  //   })
+  // }, [])
 
   const handleAssistantDataEventSmartAppData = (event) => {
     console.log('AssistantWrapper.handleAssistantEventSmartAppData: event:', event);
@@ -231,13 +228,7 @@ function App() {
       genre,
       setGenre
     }}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/game" element={<Game res={modalRes} setModalRes={setModalRes} assistant_global={assistant_global} menu={menu} setMenu={setMenu} next={next} setNext={setNext} setAnsw={setAnsw} answ={answ}/>}/>
-          <Route path="/quotes" element={<DifferentQuotes assistant_global={assistant_global} scale={scale} setScale={setScale} setReturnMenuState={setMenuState} returnMenuState={menuState}/>}/>
-          <Route path="/" element={<Menu assistant_global={assistant_global} modalQuiz={stateModalQuiz} setModalQuiz={setStateModalQuiz} state={modalState} setState={setModalState} setAssistantGenre={setAssistantGenre} AssistantGenre={assistantGenre}/>}/>
-        </Routes> 
-      </BrowserRouter>
+      <AppRoutes/>
     </GenreContext.Provider>
   );
 }
