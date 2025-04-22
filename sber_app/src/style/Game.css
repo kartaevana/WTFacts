@@ -1,0 +1,77 @@
+.game_menu{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.game_button{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 55vh;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
+.btn_answ{
+    padding: 15px 20px;
+    font-size: 1.8vw;
+    margin-top: 0;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-family: Cinzel;
+    width: 20%;
+}
+
+.btnMenuAfterGame{
+    padding: 15px 20px;
+    font-size: 1.8vw;
+    margin-top: 0px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(145, 145, 145);
+    font-family: Cinzel;
+    width: 20%;
+}
+
+.check_answ{
+    padding: 15px 20px;
+    font-size: 1.8vw;
+    margin-top: 0px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-family: Cinzel;
+    width: 20%;
+}
+
+.check_unAnsw{
+    padding: 15px 20px;
+    font-size: 1.8vw;
+    margin-bottom: 3vh;
+    margin-top: 0px;
+    border-radius: 12px;
+    border: none;
+    font-family: Cinzel;
+    width: 20%;
+}
+
+.btn_nextQuest{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
