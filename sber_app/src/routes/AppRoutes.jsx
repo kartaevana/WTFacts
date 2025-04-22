@@ -9,9 +9,15 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<AppLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="fact" element={<FactPage />} />
+        <Route path="fact/:id" element={<FactPage />} />
         {/* <Route path="voice" element={<VoicePage />} /> */}
       </Route>
     </Routes>
   )
 }
+
+/**
+ * id
+ * name
+ * fact
+ */
