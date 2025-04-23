@@ -1,7 +1,12 @@
-// import './HomePage.css';
+import { ButtonMore } from './components/ButtonMore/ButtonMore';
+import { FactCard } from './components/FactCard/FactCard';
+import './FactPage.css';
 
 export const FactPage = () => {
     return (
-        <p className="facts_text">FACTS!</p>
+        <div class="fact-page">
+            <FactCard/>
+            <ButtonMore/>
+        </div>
     )
 }

@@ -1,0 +1,56 @@
+.container {
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.fact-card {
+    font-family: 'Unbounded', sans-serif;
+    background-color: #E8E8E8;
+    border-radius: 24px;
+    padding: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.fact-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.emoji {
+    font-size: 24px;
+}
+
+.fact-name {
+    font-size: 24px;
+    color: #000;
+    font-weight: 600;
+}
+
+.fact-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 24px;
+}
+
+.more-button {
+    background-color: #7AA7FF;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 24px;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    float: right;
+    align-items: center;
+}
+
+.more-button:hover {
+    background-color: #6590E8;
+}

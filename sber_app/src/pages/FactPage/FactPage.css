@@ -1,0 +1,10 @@
+.fact-page {
+    margin: 0 13vw;
+    padding: 0;
+    box-sizing: border-box;
+    background-clip: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 20px;
+}
