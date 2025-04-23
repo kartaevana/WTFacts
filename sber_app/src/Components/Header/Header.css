@@ -1,10 +1,14 @@
 .header {
     padding: 30px;
+    display: flex;          /* Включаем flex-контейнер */
+    justify-content: flex-end; /* Выравниваем элементы по правому краю */
+    /* или можно использовать: */
+    /* justify-content: space-between; если будут другие элементы */
 }
 
 .circle {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: red;
+    background-color: rgb(255, 255, 255);
 }
