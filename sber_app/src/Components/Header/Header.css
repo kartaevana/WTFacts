@@ -6,9 +6,8 @@
     /* justify-content: space-between; если будут другие элементы */
 }
 
-.circle {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
+.user-photo {
+    width: 50px;     /* Подстройте под размер вашего фото */
+    height: 40px;    /* Если нужно квадратное соотношение */
+    /* object-fit: contain;  // Раскомментируйте, если фото искажается */
 }
