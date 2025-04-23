@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import './assets/style/style.css';
+// import './assets/style/style.css';
 import { GenreContext } from "./hook/context";
 import { createAssistant, createSmartappDebugger } from "@salutejs/client";
 import { useSpatnavInitialization } from "@salutejs/spatial";

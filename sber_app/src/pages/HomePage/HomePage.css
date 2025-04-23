@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    transform: translateY(-100px);
 }
 
 .home_text {
@@ -13,6 +14,7 @@
     background-clip: text;
     color: transparent;
     text-transform: uppercase;
+    font-family: 'Montserrat'
 }
 
 .wtfacts-reveal-btn {
@@ -37,17 +39,17 @@
     box-shadow: none !important;
 }
 
-.wtfacts-reveal-btn::before {
+/* .wtfacts-reveal-btn::before {
     content: '';
     position: absolute;
-    top: 0;
+    top: 0; 
     /* left: -100%; */
-    width: 100%;
+    /* width: 100%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(78, 205, 196, 0.2), transparent);
     transition: 0.5s;
-    z-index: -1;
-}
+    z-index: -1; */
+/* }  */
 
 .wtfacts-reveal-btn:hover {
     color: #ffffff;
@@ -66,7 +68,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #AABFF4, #D90C6C);
+    background: linear-gradient(135deg, #9078FA, #D90C6C);
     z-index: -2;
     opacity: 0;
     transition: 0.4s;
