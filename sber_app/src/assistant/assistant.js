@@ -6,6 +6,11 @@ export const initializeAssistant = (getState) => {
       token: process.env.REACT_APP_TOKEN || '',
       initPhrase: `Запусти ${process.env.REACT_APP_SMARTAPP || 'приложение'}`,
       getState,
+      nativePanel: {
+        defaultText: 'Расскажи что-то интересное',
+        screenshotMode: false,
+        tabIndex: -1,
+    }
     });
   }
   return createAssistant({ getState });
