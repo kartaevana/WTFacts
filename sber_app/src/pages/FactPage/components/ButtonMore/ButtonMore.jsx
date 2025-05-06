@@ -1,7 +1,13 @@
 import './ButtonMore.css';
 
-export const ButtonMore = () => {
+export const ButtonMore = ({ onFetchNew, isLoading }) => {
     return (
-        <button class="more-button">ЕЩЁ</button>
-    )
-}
+        <button
+            className="more-button"
+            onClick={onFetchNew}
+            disabled={isLoading}
+        >
+            {isLoading ? 'Загрузка...' : 'ЕЩЁ'}
+        </button>
+    );
+};

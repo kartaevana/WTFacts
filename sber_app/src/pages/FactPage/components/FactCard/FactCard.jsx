@@ -1,18 +1,16 @@
 import './FactCard.css';
 import emoji_img from "../../../../assets/jpg/fa6-regular_face-surprise.png"
 
-export const FactCard = () => {
+export const FactCard = ({ fact }) => {
+    if (!fact) return null;
+
     return (
-        <>
-        <div class="fact-card">
-                <div class="fact-header">
-                    <image class="fact-card__face" src={emoji_img}/>
-                    <h2 class="fact-name">Бурундуки-суицидники</h2>
-                </div>
-                <p class="fact-text">
-                    Бурундуки — это не просто милые полосатые зверьки, а настоящие стратеги выживания! Каждую осень они собирают до **8 кг** запасов, пряча семена и орехи в своих норках с удивительной точностью. Их защёчные мешки могут растягиваться до размеров головы, превращая бурундука в миниатюрный грузовик для провизии. А ещё они умеют притворяться мёртвыми, если чувствуют опасность — вот это актёрское мастерство!
-                </p>
-        </div>  
-        </>
+        <div className="fact-card">
+            <div className="fact-header">
+                <img className="fact-card__face" src={emoji_img} alt="Удивленное лицо" />
+                <h2 className="fact-name">{fact.name}</h2>
+            </div>
+            <p className="fact-text">{fact.fact}</p>
+        </div>
     )
 }
