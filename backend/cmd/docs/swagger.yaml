@@ -1,0 +1,37 @@
+definitions:
+  models.Fact:
+    properties:
+      ID:
+        type: integer
+      text:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /facts/random:
+    get:
+      description: Returns a random absurd fact from database
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Random fact
+          schema:
+            $ref: '#/definitions/models.Fact'
+        "404":
+          description: No facts available
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal server error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+      summary: Get random fact
+      tags:
+      - facts
+swagger: "2.0"
