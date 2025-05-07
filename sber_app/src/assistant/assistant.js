@@ -7,7 +7,7 @@ export const initializeAssistant = (getState) => {
       initPhrase: `Запусти ${process.env.REACT_APP_SMARTAPP || 'приложение'}`,
       getState,
       nativePanel: {
-        defaultText: 'Расскажи что-то интересное',
+        defaultText: 'Расскажи',
         screenshotMode: false,
         tabIndex: -1,
     }
