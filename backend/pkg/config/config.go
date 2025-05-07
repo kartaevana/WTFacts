@@ -3,8 +3,7 @@ package config
 import (
 	"fmt"
 	"github.com/spf13/viper"
-	"os"
-	"path/filepath"
+	// os и filepath больше не нужны
 )
 
 const (
@@ -14,33 +13,23 @@ const (
 	DBHost     = "DB_HOST"
 	DBPort     = "DB_PORT"
 
-	// TimeOut           = "TIME_OUT"
-	// JWTExpire         = "JWT_EXPIRE"
-	// Secret            = "SECRET"
-	// SessionExpiration = "SESSION_EXPIRATION"
-
-	// RedisHost     = "REDIS_HOST"
-	// RedisPassword = "REDIS_PASSWORD"
-	// RedisPort     = "REDIS_PORT"
-
-	// это вам пока ненада
+	// ... (остальные константы) ...
 )
 
 func InitConfig() {
+	viper.SetConfigName(".env") // Ищем файл с именем ".env"
+	viper.SetConfigType("env")  // В формате env
 
-	fmt.Println(os.Getwd())
-	envPath, _ := os.Getwd()
-	envPath = filepath.Join(envPath, "..")
-	envPath = filepath.Join(envPath, "/deploy")
+	// --- ДОБАВЬТЕ ЭТУ СТРОКУ ---
+	// Указываем Viper'у искать файл в текущем рабочем каталоге (который в контейнере /app)
+	viper.AddConfigPath(".")
+	// --- КОНЕЦ ДОБАВЛЕНИЯ ---
 
-	viper.SetConfigName(".env")
-	viper.SetConfigType("env")
-	viper.AddConfigPath(envPath)
+	viper.AutomaticEnv() // Считываем переменные окружения, которые переопределяют значения из .env
 
-	viper.AutomaticEnv()
-
-	err := viper.ReadInConfig()
+	err := viper.ReadInConfig() // Пытаемся прочитать файл конфигурации
 	if err != nil {
+		// Если файл не найден (или другая ошибка), паникуем с деталями
 		panic(fmt.Sprintf("Failed to init config. Error:%v", err.Error()))
 	}
 }

@@ -28,26 +28,21 @@ func UnitFormatter() {
 	}
 }
 
-func InitLogger() (*Logs, *os.File, *os.File) {
+func InitLogger() *Logs { // Теперь функция возвращает только *Logs, так как файловые дескрипторы не нужны снаружи
 	UnitFormatter()
 
-	loggerInfoFile, err := os.OpenFile("log/info.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0660)
-	if err != nil {
-		panic("Error opening info log file")
-	}
+	// Используем os.Stdout для информационных логов
+	infoLogger := zerolog.New(os.Stdout).With().Timestamp().Caller().Logger()
 
-	loggerErrorFile, err := os.OpenFile("log/error.log", os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0660)
-	if err != nil {
-		panic("Error opening error log file")
-	}
-
-	infoLogger := zerolog.New(loggerInfoFile).With().Timestamp().Caller().Logger()
-	errorLogger := zerolog.New(loggerErrorFile).With().Timestamp().Caller().Logger()
+	// Используем os.Stderr для логов ошибок
+	errorLogger := zerolog.New(os.Stderr).With().Timestamp().Caller().Logger()
 
 	log := &Logs{
 		infoLogger:  &infoLogger,
 		errorLogger: &errorLogger,
 	}
 
-	return log, loggerInfoFile, loggerErrorFile
+	// Больше нет необходимости возвращать файловые дескрипторы,
+	// так как мы не открываем файлы, которые нужно закрывать.
+	return log
 }

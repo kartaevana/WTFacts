@@ -28,3 +28,11 @@
 {"level":"info","time":"2025-05-06T22:12:59Z","caller":"C:/Users/karta/projects/WTFacts/backend/pkg/log/log.go:15","message":"Database initialized"}
 {"level":"info","time":"2025-05-06T22:48:15Z","caller":"C:/Users/karta/projects/WTFacts/backend/pkg/log/log.go:15","message":"Config initialized"}
 {"level":"info","time":"2025-05-06T22:48:15Z","caller":"C:/Users/karta/projects/WTFacts/backend/pkg/log/log.go:15","message":"Database initialized"}
+{"level":"info","time":"2025-05-07T00:26:00Z","caller":"C:/Users/karta/projects/WTFacts/backend/pkg/log/log.go:15","message":"Config initialized"}
+{"level":"info","time":"2025-05-07T00:26:00Z","caller":"C:/Users/karta/projects/WTFacts/backend/pkg/log/log.go:15","message":"Database initialized"}
+{"level":"info","time":"2025-05-07T00:27:43Z","caller":"C:/Users/karta/projects/WTFacts/backend/pkg/log/log.go:15","message":"Config initialized"}
+{"level":"info","time":"2025-05-07T00:27:43Z","caller":"C:/Users/karta/projects/WTFacts/backend/pkg/log/log.go:15","message":"Database initialized"}
+{"level":"info","time":"2025-05-07T12:46:11Z","caller":"C:/Users/karta/projects/WTFacts/backend/pkg/log/log.go:15","message":"Config initialized"}
+{"level":"info","time":"2025-05-07T12:46:11Z","caller":"C:/Users/karta/projects/WTFacts/backend/pkg/log/log.go:15","message":"Database initialized"}
+{"level":"info","time":"2025-05-07T12:53:14Z","caller":"C:/Users/karta/projects/WTFacts/backend/pkg/log/log.go:15","message":"Config initialized"}
+{"level":"info","time":"2025-05-07T12:53:14Z","caller":"C:/Users/karta/projects/WTFacts/backend/pkg/log/log.go:15","message":"Database initialized"}

@@ -4,14 +4,11 @@ import (
 	"WTFacts/internal/delivery"
 	"WTFacts/pkg/config"
 	"WTFacts/pkg/database"
-	"WTFacts/pkg/log"
+	"WTFacts/pkg/log" // Убедитесь, что импорт правильный, если он не WTFacts/pkg/log
 )
 
 func main() {
-	log, loggerInfoFile, loggerErrorFile := log.InitLogger()
-
-	defer loggerInfoFile.Close()
-	defer loggerErrorFile.Close()
+	log := log.InitLogger()
 
 	config.InitConfig()
 	log.Info("Config initialized")
