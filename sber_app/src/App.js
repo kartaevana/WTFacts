@@ -78,14 +78,14 @@ function App() {
   }, []);
 
   return (
-    // <AssistantContext.Provider value={{
-    //   assistant: assistantRef.current,
-    //   sendData,
-    //   showFact,
-    //   state: assistantState,
-    // }}>
+    <AssistantContext.Provider value={{
+      assistant: assistantRef.current,
+      sendData,
+      showFact,
+      state: assistantState,
+    }}>
       <AppRoutes />
-    // </AssistantContext.Provider>
+      </AssistantContext.Provider>
   );
 }
 
