@@ -1,0 +1,4 @@
+.env
+.idea
+./sber_app/.env
+./backend/deploy/.env
