@@ -1,0 +1,57 @@
+services:
+  app:
+    build:
+      dockerfile: /backend/deploy/Dockerfile
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+      - backend/deploy/.env
+    environment:
+      DB_HOST: postgres-database
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_PORT: ${DB_PORT}
+    depends_on:
+      postgres-database:
+        condition: service_healthy
+    volumes:
+      - ./data/app_logs:/app/logs
+
+  postgres-database:
+    image: postgres:15-alpine
+    env_file:
+      - .env
+      - backend/deploy/.env
+    ports:
+      - "5435:5432"
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - ../../data/postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  # Фронтенд (React)
+  frontend:
+    build:
+      context: ./sber_app
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      VITE_API_URL: http://app:8080
+    depends_on:
+      - app
+    volumes:
+      - ./sber_app/src:/app/src
+      - /app/node_modules
+
+volumes:
+  postgres_data_volume:
