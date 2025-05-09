@@ -1,7 +1,7 @@
 services:
   app:
     build:
-      dockerfile: /backend/deploy/Dockerfile
+      dockerfile: ./backend/deploy/Dockerfile
     ports:
       - "8080:8080"
     env_file:
