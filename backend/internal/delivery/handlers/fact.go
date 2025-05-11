@@ -26,6 +26,8 @@ func InitFactHandler(service service.FactServ) *FactHandler { // Возвращ�
 // @Failure 500 {object} map[string]string "Internal server error"
 // @Router /facts/random [get]
 func (h *FactHandler) GetRandom(c *gin.Context) {
+	c.Header("Content-Type", "application/json; charset=utf-8")
+
 	ctx, cancel := context.WithTimeout(c.Request.Context(), 3*time.Second) // Используем контекст запроса
 	defer cancel()
 
@@ -35,5 +37,8 @@ func (h *FactHandler) GetRandom(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, fact)
+	c.JSON(http.StatusOK, gin.H{
+		"name": fact.Name,
+		"fact": fact.Fact,
+	})
 }

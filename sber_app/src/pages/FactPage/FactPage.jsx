@@ -12,7 +12,7 @@ export const FactPage = () => {
         setIsLoading(true);
         setError(null);
         try {
-            const response = await fetch('http://localhost:8080/facts/random');
+            const response = await fetch('http://178.209.127.44:8080/facts/random');
             if (!response.ok) throw new Error('Ошибка сервера');
             const fact = await response.json();
             setCurrentFact(fact);
