@@ -1,17 +1,26 @@
 import { createAssistant, createSmartappDebugger } from '@salutejs/client';
 
+let assistantInstance = null;
+
 export const initializeAssistant = (getState) => {
-  if (process.env.NODE_ENV === 'development') {
-    return createSmartappDebugger({
-      token: process.env.REACT_APP_TOKEN || '',
-      initPhrase: `Запусти ${process.env.REACT_APP_SMARTAPP || 'приложение'}`,
-      getState,
-      nativePanel: {
-        defaultText: 'Расскажи',
-        screenshotMode: false,
-        tabIndex: -1,
+  if (assistantInstance) return assistantInstance;
+
+  const settings = {
+    getState,
+    token: process.env.REACT_APP_TOKEN || '',
+    initPhrase: `Запусти ${process.env.REACT_APP_SMARTAPP || 'приложение'}`,
+    nativePanel: {
+      defaultText: 'Поговорим',
+      screenshotMode: false,
+      tabIndex: -1,
     }
-    });
-  }
-  return createAssistant({ getState });
+  };
+
+  assistantInstance = process.env.NODE_ENV === 'development'
+      ? createSmartappDebugger(settings)
+      : createAssistant(settings);
+
+  return assistantInstance;
 };
+
+export const getAssistantInstance = () => assistantInstance;
