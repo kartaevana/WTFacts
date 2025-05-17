@@ -6,7 +6,7 @@ services:
       - "8080:8080"
     env_file:
       - .env
-      - backend/deploy/.env
+      - backend/cmd/.env
     environment:
       DB_HOST: ${DB_HOST}
       DB_NAME: ${DB_NAME}
@@ -23,7 +23,7 @@ services:
     image: postgres:15-alpine
     env_file:
       - .env
-      - backend/deploy/.env
+      - backend/cmd/.env
     ports:
       - "5435:5432"
     environment:
